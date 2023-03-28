@@ -36,16 +36,28 @@ RUN install-php-extensions pdo_mysql bcmath exif zip gd sockets intl \
 
 RUN echo 'ServerName localhost' >> /etc/apache2/apache2.conf \
     && a2enmod rewrite expires deflate mime headers \
-    && chown www-data:www-data /var/www/html
-
+    && chown www-data:www-data /var/www/html \
 # RequestHeader edit "If-None-Match" '^"((.*)-gzip)"$' '"$1", "$2"' \
 # because of apache mod_deflate gzip bug https://bz.apache.org/bugzilla/show_bug.cgi?id=45023#c22
-RUN echo 'RequestHeader edit "If-None-Match" '"'"'^"((.*)-gzip)"$'"'"' '"'"'"$1", "$2"'"'" >> /etc/apache2/apache2.conf
-
-
+    && echo 'RequestHeader edit "If-None-Match" '"'"'^"((.*)-gzip)"$'"'"' '"'"'"$1", "$2"'"'" >> /etc/apache2/apache2.conf
 
 ENV APACHE_RUN_USER=user
 ENV APACHE_RUN_GROUP=user
+
+
+# DOCUMENT ROOT
+
+ENV APACHE_DOCUMENT_ROOT /var/www/public
+
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
+    && sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf \
+    && mkdir /var/www/public \
+    && echo '\n\
+            <Directory "/var/www/public">\n\
+                Options +Indexes +MultiViews +FollowSymLinks +SymLinksIfOwnerMatch \n\
+                Allow from all\n\
+            </Directory>' >> /etc/apache2/apache2.conf
+
 
 
 ###################

@@ -1,24 +1,27 @@
-# Andi Apache Mysql PHP (aamp)
+# AAMP (Andi + Apache + MariaDB + PHP)
 
 
-## Run Example
+## Just Run Example
+
 ```bash
 docker run -it --rm \
     -p 80:80 \
-    -v /home/andy/workspace/htdocs:/var/www/html \
+    -v /home/andy/workspace/htdocs:/var/www/public \
     -p 3306:3306 \
     -v mariadb-data:/var/lib/mysql \
-    -e UID=1000 -e GID=1000 \
+    -e VUID=$(id -u) -e VGID=$(id -g) \
     --name aamp \
     andreasvonburg/aamp:php8.2
-    
-docker run -it --rm \
-    -p 80:80 \
-    --mount type=bind,source=/home/andy/testhtdocs,target=/var/www/html \
-    -p 3306:3306 \
-    -v mariadb-data:/var/lib/mysql \
-    --name aamp \
-    andreasvonburg/aamp:php8.2    
+```
+
+
+
+## Install
+
+### Ubuntu
+
+```bash
+
 ```
 
 
@@ -27,5 +30,7 @@ docker run -it --rm \
 ```bash
 docker build -t andreasvonburg/aamp:php8.2 -f php8.2.Dockerfile .
 ```
+
+
 
 
