@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker run -it --rm \
+docker run -i --rm \
     -p 80:80 \
     -v /home/andy/workspace/htdocs:/var/www/public \
     -p 3306:3306 \

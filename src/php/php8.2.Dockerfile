@@ -9,7 +9,7 @@ FROM php:8.2-apache
 
 ENV TZ=Europe/Zurich
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
-    && apt update && apt install -y nano
+    && apt update && apt install -y nano net-tools
 
 
 
@@ -19,13 +19,18 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
 
 
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
-RUN chmod +x /usr/local/bin/install-php-extensions
+RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"  \
+    && chmod +x /usr/local/bin/install-php-extensions
 
 RUN install-php-extensions pdo_mysql bcmath exif zip gd sockets intl \
     && docker-php-ext-enable opcache \
     && echo "\n\
         max_execution_time = 60\n\
-        memory_limit = 265M" >> "$PHP_INI_DIR/conf.d/docker-php-limits.ini"
+        memory_limit = 265M" >> "$PHP_INI_DIR/conf.d/docker-php-limits.ini"  \
+    && echo "\n\
+        pdo_mysql.default_socket = /var/run/mysqld/mysqld.sock" >> "$PHP_INI_DIR/conf.d/docker-php-pdo.ini"
+
+
 
 
 
@@ -64,8 +69,9 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
 # MariaDB
 ###################
 
-RUN apt-get update && apt-get install -y mariadb-server \
+RUN apt-get update && apt-get install -y mariadb-server socket \
     && sed -i "s/127.0.0.1/0.0.0.0/g" /etc/mysql/mariadb.conf.d/* \
+    && sed -i "s/#skip-name-resolve/skip-name-resolve/g" /etc/mysql/mariadb.conf.d/* \
     && mkdir /var/run/mysqld \
     && chown -R mysql:mysql /var/run/mysqld
 
