@@ -27,22 +27,14 @@ docker run -it --rm \
 
 ```bash
 sudo mkdir /opt/aamp
- 
 sudo wget -O /opt/aamp/icon.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon.png
 sudo wget -O /opt/aamp/aamp-php8.2.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2.sh
 sudo chmod +x /opt/aamp/aamp-php8.2.sh
-
-sudo echo '[Desktop Entry]
-Encoding=UTF-8
-Version=1.0
-Type=Application
-Terminal=true
-Exec=/opt/aamp/aamp-php8.2.sh
-Name=AAMP PHP 8.2
-Icon=/opt/aamp/icon.png' > ~/.local/share/applications/aamp-php8.2.desktop 
+sudo wget -O ~/.local/share/applications/aamp-php8.2.desktop https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2.desktop
 ```
 
 Change /home/andy/workspace/htdocs to the path to your htdocs
+
 ```
 sed -i 's#_path_to_docs_#/home/andy/workspace/htdocs#' /opt/aamp/aamp-php8.2.sh
 ```
