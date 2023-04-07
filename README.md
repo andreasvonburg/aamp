@@ -57,5 +57,3 @@ docker push andreasvonburg/aamp:php8.2
 
 
 
-
-# https://serverfault.com/questions/1065513/how-does-linux-resolve-wildcard-locahost-subdomains-e-g-ping-test-localhost
