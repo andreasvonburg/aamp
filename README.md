@@ -1,4 +1,4 @@
-# AAMP (Andi + Apache + MariaDB + PHP)
+# AAMPR (Andi + Apache + MariaDB + PHP + RabbitMq)
 
 
 ## Just Run Example
@@ -11,6 +11,7 @@ docker run -it --rm \
     -v /home/andy/workspace/htdocs:/var/www/public \
     -p 3306:3306 \
     -v mariadb-data:/var/lib/mysql \
+    -p 5672:5672 -p 15672:15672 \
     -e VUID=$(id -u) -e VGID=$(id -g) \
     --name aamp \
     andreasvonburg/aamp:php8.2
@@ -20,15 +21,16 @@ docker run -it --rm \
 
 ## Install
 
-### Ubuntu
+### PHP 8.2
+
+#### Ubuntu
 
 ```bash
 sudo mkdir /opt/aamp
-
-cd /opt/aamp
-sudo wget -O icon.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon.png
-sudo wget -O aamp-php8.2.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2.sh
-sudo chmod +x aamp-php8.2.sh
+ 
+sudo wget -O /opt/aamp/icon.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon.png
+sudo wget -O /opt/aamp/aamp-php8.2.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2.sh
+sudo chmod +x /opt/aamp/aamp-php8.2.sh
 
 sudo echo '[Desktop Entry]
 Encoding=UTF-8
@@ -40,6 +42,10 @@ Name=AAMP PHP 8.2
 Icon=/opt/aamp/icon.png' > ~/.local/share/applications/aamp-php8.2.desktop 
 ```
 
+Change /home/andy/workspace/htdocs to the path to your htdocs
+```
+sed -i 's#_path_to_docs_#/home/andy/workspace/htdocs#' /opt/aamp/aamp-php8.2.sh
+```
 
 
 ## Build Example
@@ -60,3 +66,4 @@ docker push andreasvonburg/aamp:php8.2
 
 
 
+# https://serverfault.com/questions/1065513/how-does-linux-resolve-wildcard-locahost-subdomains-e-g-ping-test-localhost
