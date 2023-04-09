@@ -39,6 +39,16 @@ Change /home/andy/workspace/htdocs to the path to your htdocs
 sed -i 's#_path_to_docs_#/home/andy/workspace/htdocs#' /opt/aamp/aamp-php8.2.sh
 ```
 
+#### Windows
+
+Use Powershell
+
+```
+$WebClient = New-Object System.Net.WebClient
+$WebClient.DownloadFile("https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2.bat","D:\apps\aamp\aamp8.2.bat")
+
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2.bat" -OutFile "D:\apps\aamp\aamp8.2.bat"
+```
 
 ## Build Example
 
