@@ -2,7 +2,7 @@
 
 
 ## Just Run Example
-
+[README.md](README.md)
 Change /home/andy/workspace/htdocs to your local htdocs folder.
 
 ```bash
@@ -22,6 +22,24 @@ docker run -it --rm \
 ## Install
 
 ### PHP 8.2
+
+#### Linux Mint / Ubuntu
+
+```bash
+sudo mkdir /opt/aamp
+sudo wget -O /opt/aamp/icon.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon.png
+sudo wget -O /opt/aamp/aamp-php8.2.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2.sh
+sudo chmod +x /opt/aamp/aamp-php8.2.sh
+wget -O ~/.local/share/applications/aamp-php8.2.desktop https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2.desktop
+sudo chmod +x ~/.local/share/applications/aamp-php8.2.desktop
+#gio set ~/.local/share/applications/aamp-php8.2.desktop "metadata::trusted" yes
+```
+
+Change /home/andy/workspace/htdocs to the path to your htdocs
+
+```
+sed -i 's#_path_to_docs_#/home/andy/workspace/htdocs#' /opt/aamp/aamp-php8.2.sh
+```
 
 #### Ubuntu
 
