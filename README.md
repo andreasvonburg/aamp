@@ -38,7 +38,7 @@ sudo chmod +x ~/.local/share/applications/aamp-php8.2.desktop
 Change /home/andy/workspace/htdocs to the path to your htdocs
 
 ```
-sed -i 's#_path_to_docs_#/home/andy/workspace/htdocs#' /opt/aamp/aamp-php8.2.sh
+sudo sed -i 's#_path_to_docs_#/home/andy/workspace/htdocs#' /opt/aamp/aamp-php8.2.sh
 ```
 
 #### Ubuntu
