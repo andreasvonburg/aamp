@@ -9,7 +9,7 @@ FROM php:8.2-apache
 
 ENV TZ=Europe/Zurich
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
-    && apt update && apt install -y nano net-tools libnss-myhostname curl gnupg apt-transport-https
+    && apt-get update && apt-get install -y nano net-tools libnss-myhostname curl gnupg apt-transport-https
 
 
 
@@ -55,6 +55,7 @@ ENV APACHE_DOCUMENT_ROOT /var/www/public
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
     && sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf \
     && mkdir /var/www/public \
+    && useradd -u 1001 -o -m user2 && groupmod -g 1001 user2 && chown user2:user2 /var/www/public \
     && echo '\n\
             <Directory "/var/www/public">\n\
                 Options +Indexes +MultiViews +FollowSymLinks +SymLinksIfOwnerMatch \n\
@@ -68,7 +69,7 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
 ###################
 
 
-RUN apt-get update && apt-get install -y mariadb-server socket \
+RUN apt-get update && apt-get install -y mariadb-server socket.io \
     && sed -i "s/127.0.0.1/0.0.0.0/g" /etc/mysql/mariadb.conf.d/* \
     && sed -i "s/#skip-name-resolve/skip-name-resolve/g" /etc/mysql/mariadb.conf.d/* \
     && mkdir /var/run/mysqld \
