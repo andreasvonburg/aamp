@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=true
+Exec=/opt/aamp/aamp-php1.sh
+Name=AAMP PHP 1
+Icon=/opt/aamp/icon.png
