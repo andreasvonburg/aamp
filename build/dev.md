@@ -41,10 +41,13 @@ done
 ## README.md
 
 ```bash
-cp -f docs/readme.tmpl.md README.md
+VERSIONS=(8.3 8.2 8.1 8.0)
 
-sed cat docs/install-php.tmpl.md >> README.md
+cp -f ../docs/readme.tmpl.md ../README.md
+
+cat ../docs/install-php.tmpl.md >> ../README.md
+
 for VERSION in ${VERSIONS[@]}; do
-    sed "s/__VERSION__/${VERSION}/g" docs/install-php.tmpl.md >> README.md
+    sed "s/__VERSION__/${VERSION}/g" ../docs/install-php.tmpl.md >> ../README.md
 done
 ```
