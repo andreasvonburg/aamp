@@ -1,6 +1,7 @@
 #!/bin/bash
 
-docker stop aamp || true && docker rm aamp || true
+docker stop aamp || true
+docker rm aamp || true
 
 docker run -it --rm \
   -p 80:80 \

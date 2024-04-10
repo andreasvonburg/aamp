@@ -25,13 +25,15 @@ done
 ## bin/php
 
 ```bash
+VERSIONS=(8.3 8.2 8.1 8.0)
+
 for VERSION in ${VERSIONS[@]}; do
-    cp -f bin/php/aamp-php.bat.tmpl bin/php/aamp-php${VERSION}.bat
-    sed -i "s/__VERSION__/${VERSION}/g" bin/php/aamp-php${VERSION}.bat
-    cp -f bin/php/aamp-php.desktop.tmpl bin/php/aamp-php${VERSION}.desktop
-    sed -i "s/__VERSION__/${VERSION}/g" bin/php/aamp-php${VERSION}.desktop
-    cp -f bin/php/aamp-php.sh.tmpl bin/php/aamp-php${VERSION}.sh
-    sed -i "s/__VERSION__/${VERSION}/g" bin/php/aamp-php${VERSION}.sh
+    cp -f ../bin/php/aamp-php.bat.tmpl ../bin/php/aamp-php${VERSION}.bat
+    sed -i "s/__VERSION__/${VERSION}/g" ../bin/php/aamp-php${VERSION}.bat
+    cp -f ../bin/php/aamp-php.desktop.tmpl ../bin/php/aamp-php${VERSION}.desktop
+    sed -i "s/__VERSION__/${VERSION}/g" ../bin/php/aamp-php${VERSION}.desktop
+    cp -f ../bin/php/aamp-php.sh.tmpl ../bin/php/aamp-php${VERSION}.sh
+    sed -i "s/__VERSION__/${VERSION}/g" ../bin/php/aamp-php${VERSION}.sh
 done
 ```
 
