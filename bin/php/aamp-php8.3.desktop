@@ -5,4 +5,4 @@ Type=Application
 Terminal=true
 Exec=/opt/aamp/aamp-php8.3.sh
 Name=AAMP PHP 8.3
-Icon=/opt/aamp/icon.png
+Icon=/opt/aamp/icon-8.3.png

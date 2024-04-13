@@ -68,10 +68,11 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
 # MariaDB
 ###################
 
+RUN curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --mariadb-server-version="mariadb-10.11.7"
 
 RUN apt-get update && apt-get install -y mariadb-server socket.io \
-    && sed -i "s/127.0.0.1/0.0.0.0/g" /etc/mysql/mariadb.conf.d/* \
-    && sed -i "s/#skip-name-resolve/skip-name-resolve/g" /etc/mysql/mariadb.conf.d/* \
+    && sed -i "s/127.0.0.1/0.0.0.0/g" /etc/mysql/mariadb.conf.d/*.cnf \
+    && sed -i "s/#skip-name-resolve/skip-name-resolve/g" /etc/mysql/mariadb.conf.d/*.cnf \
     && mkdir /var/run/mysqld \
     && chown -R mysql:mysql /var/run/mysqld
 
@@ -91,7 +92,7 @@ EXPOSE 3306
 
 
 RUN apt update \
-	&& apt install rabbitmq-server -y --fix-missing \
+	&& apt-get install rabbitmq-server -y --fix-missing \
     && rabbitmq-plugins enable rabbitmq_management \
     && echo "[{rabbit, [{loopback_users, []}]}]." > /etc/rabbitmq/rabbitmq.config
 
