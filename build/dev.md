@@ -26,11 +26,12 @@ done
 ```
 
 
-## bin/php
+## bin/php and README.md
 
 ```bash
 VERSIONS=(8.3 8.2 8.1 8.0)
 MARIADB_VERSION=10.11.7
+
 
 for VERSION in ${VERSIONS[@]}; do
     cp -f ../bin/php/aamp-php.bat.tmpl ../bin/php/aamp-php${VERSION}.bat
@@ -42,14 +43,7 @@ for VERSION in ${VERSIONS[@]}; do
     sed -i "s/__VERSION__/${VERSION}/g" ../bin/php/aamp-php${VERSION}.sh
     sed -i "s/__MARIADB_VERSION__/${MARIADB_VERSION}/g" ../bin/php/aamp-php${VERSION}.sh
 done
-```
 
-
-## README.md
-
-```bash
-VERSIONS=(8.3 8.2 8.1 8.0)
-MARIADB_VERSION=10.11.7
 
 cp -f ../docs/readme.tmpl.md ../README.md
 
