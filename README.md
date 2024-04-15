@@ -36,6 +36,7 @@ wget -O ~/.local/share/applications/aamp-php8.3.desktop https://raw.githubuserco
 sudo chmod +x ~/.local/share/applications/aamp-php8.3.desktop
 docker rm -f andreasvonburg/aamp:php8.3 2>/dev/null || true
 
+HTDOCS_PATH=
 while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
 do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
@@ -92,6 +93,7 @@ wget -O ~/.local/share/applications/aamp-php8.2.desktop https://raw.githubuserco
 sudo chmod +x ~/.local/share/applications/aamp-php8.2.desktop
 docker rm -f andreasvonburg/aamp:php8.2 2>/dev/null || true
 
+HTDOCS_PATH=
 while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
 do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
@@ -148,6 +150,7 @@ wget -O ~/.local/share/applications/aamp-php8.1.desktop https://raw.githubuserco
 sudo chmod +x ~/.local/share/applications/aamp-php8.1.desktop
 docker rm -f andreasvonburg/aamp:php8.1 2>/dev/null || true
 
+HTDOCS_PATH=
 while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
 do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
@@ -204,6 +207,7 @@ wget -O ~/.local/share/applications/aamp-php8.0.desktop https://raw.githubuserco
 sudo chmod +x ~/.local/share/applications/aamp-php8.0.desktop
 docker rm -f andreasvonburg/aamp:php8.0 2>/dev/null || true
 
+HTDOCS_PATH=
 while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
 do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH

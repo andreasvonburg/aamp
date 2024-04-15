@@ -13,6 +13,7 @@ wget -O ~/.local/share/applications/aamp-php__VERSION__.desktop https://raw.gith
 sudo chmod +x ~/.local/share/applications/aamp-php__VERSION__.desktop
 docker rm -f andreasvonburg/aamp:php__VERSION__ 2>/dev/null || true
 
+HTDOCS_PATH=
 while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
 do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
