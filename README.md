@@ -34,7 +34,7 @@ sudo wget -O /opt/aamp/aamp-php8.3.sh https://raw.githubusercontent.com/andreasv
 sudo chmod +x /opt/aamp/aamp-php8.3.sh
 wget -O ~/.local/share/applications/aamp-php8.3.desktop https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.3.desktop
 sudo chmod +x ~/.local/share/applications/aamp-php8.3.desktop
-docker rm andreasvonburg/aamp:php8.3
+docker rm -f andreasvonburg/aamp:php8.3 2>/dev/null || true
 ```
 
 Change /home/andy/workspace/htdocs to the path to your htdocs
@@ -82,7 +82,7 @@ sudo wget -O /opt/aamp/aamp-php8.2.sh https://raw.githubusercontent.com/andreasv
 sudo chmod +x /opt/aamp/aamp-php8.2.sh
 wget -O ~/.local/share/applications/aamp-php8.2.desktop https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2.desktop
 sudo chmod +x ~/.local/share/applications/aamp-php8.2.desktop
-docker rm andreasvonburg/aamp:php8.2
+docker rm -f andreasvonburg/aamp:php8.2 2>/dev/null || true
 ```
 
 Change /home/andy/workspace/htdocs to the path to your htdocs
@@ -130,7 +130,7 @@ sudo wget -O /opt/aamp/aamp-php8.1.sh https://raw.githubusercontent.com/andreasv
 sudo chmod +x /opt/aamp/aamp-php8.1.sh
 wget -O ~/.local/share/applications/aamp-php8.1.desktop https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.1.desktop
 sudo chmod +x ~/.local/share/applications/aamp-php8.1.desktop
-docker rm andreasvonburg/aamp:php8.1
+docker rm -f andreasvonburg/aamp:php8.1 2>/dev/null || true
 ```
 
 Change /home/andy/workspace/htdocs to the path to your htdocs
@@ -178,7 +178,7 @@ sudo wget -O /opt/aamp/aamp-php8.0.sh https://raw.githubusercontent.com/andreasv
 sudo chmod +x /opt/aamp/aamp-php8.0.sh
 wget -O ~/.local/share/applications/aamp-php8.0.desktop https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.0.desktop
 sudo chmod +x ~/.local/share/applications/aamp-php8.0.desktop
-docker rm andreasvonburg/aamp:php8.0
+docker rm -f andreasvonburg/aamp:php8.0 2>/dev/null || true
 ```
 
 Change /home/andy/workspace/htdocs to the path to your htdocs

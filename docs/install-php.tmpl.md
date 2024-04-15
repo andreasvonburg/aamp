@@ -11,7 +11,7 @@ sudo wget -O /opt/aamp/aamp-php__VERSION__.sh https://raw.githubusercontent.com/
 sudo chmod +x /opt/aamp/aamp-php__VERSION__.sh
 wget -O ~/.local/share/applications/aamp-php__VERSION__.desktop https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php__VERSION__.desktop
 sudo chmod +x ~/.local/share/applications/aamp-php__VERSION__.desktop
-docker rm andreasvonburg/aamp:php__VERSION__
+docker rm -f andreasvonburg/aamp:php__VERSION__ 2>/dev/null || true
 ```
 
 Change /home/andy/workspace/htdocs to the path to your htdocs
