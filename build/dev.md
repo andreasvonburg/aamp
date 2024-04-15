@@ -46,8 +46,7 @@ done
 
 
 cp -f ../docs/readme.tmpl.md ../README.md
-
-cat ../docs/install-php.tmpl.md >> ../README.md
+cat ../docs/install-intro.tmpl.md >> ../README.md
 
 for VERSION in ${VERSIONS[@]}; do
     sed "s/__VERSION__/${VERSION}/g" ../docs/install-php.tmpl.md >> ../README.md
