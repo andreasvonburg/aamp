@@ -80,6 +80,24 @@ Change E:\htdocs to the path to your htdocs
 ```
 
 
+#### Mac
+
+```bash
+sudo mkdir /opt/aamp
+sudo curl -o /opt/aamp/icon-8.3.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-8.3.png
+sudo curl -o /opt/aamp/aamp-php8.3.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.3.sh
+sudo chmod +x /opt/aamp/aamp-php8.3.sh
+
+docker rm -f andreasvonburg/aamp:php8.3 2>/dev/null || true
+
+HTDOCS_PATH=
+while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
+do
+    read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
+done
+sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.3.sh
+```
+
 ### PHP 8.2
 
 #### Debian / Linux Mint / Ubuntu
@@ -136,6 +154,24 @@ Change E:\htdocs to the path to your htdocs
 ((Get-Content -path D:\apps\aamp\aamp-php8.2.bat -Raw) -replace '_path_to_docs_','E:\htdocs') | Set-Content -Path D:\apps\aamp\aamp-php8.2.bat
 ```
 
+
+#### Mac
+
+```bash
+sudo mkdir /opt/aamp
+sudo curl -o /opt/aamp/icon-8.2.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-8.2.png
+sudo curl -o /opt/aamp/aamp-php8.2.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2.sh
+sudo chmod +x /opt/aamp/aamp-php8.2.sh
+
+docker rm -f andreasvonburg/aamp:php8.2 2>/dev/null || true
+
+HTDOCS_PATH=
+while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
+do
+    read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
+done
+sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.2.sh
+```
 
 ### PHP 8.1
 
@@ -194,6 +230,24 @@ Change E:\htdocs to the path to your htdocs
 ```
 
 
+#### Mac
+
+```bash
+sudo mkdir /opt/aamp
+sudo curl -o /opt/aamp/icon-8.1.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-8.1.png
+sudo curl -o /opt/aamp/aamp-php8.1.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.1.sh
+sudo chmod +x /opt/aamp/aamp-php8.1.sh
+
+docker rm -f andreasvonburg/aamp:php8.1 2>/dev/null || true
+
+HTDOCS_PATH=
+while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
+do
+    read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
+done
+sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.1.sh
+```
+
 ### PHP 8.0
 
 #### Debian / Linux Mint / Ubuntu
@@ -248,4 +302,23 @@ Change E:\htdocs to the path to your htdocs
 
 ```powershell
 ((Get-Content -path D:\apps\aamp\aamp-php8.0.bat -Raw) -replace '_path_to_docs_','E:\htdocs') | Set-Content -Path D:\apps\aamp\aamp-php8.0.bat
+```
+
+
+#### Mac
+
+```bash
+sudo mkdir /opt/aamp
+sudo curl -o /opt/aamp/icon-8.0.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-8.0.png
+sudo curl -o /opt/aamp/aamp-php8.0.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.0.sh
+sudo chmod +x /opt/aamp/aamp-php8.0.sh
+
+docker rm -f andreasvonburg/aamp:php8.0 2>/dev/null || true
+
+HTDOCS_PATH=
+while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
+do
+    read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
+done
+sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.0.sh
 ```

@@ -55,3 +55,22 @@ Change E:\htdocs to the path to your htdocs
 ```powershell
 ((Get-Content -path D:\apps\aamp\aamp-php__VERSION__.bat -Raw) -replace '_path_to_docs_','E:\htdocs') | Set-Content -Path D:\apps\aamp\aamp-php__VERSION__.bat
 ```
+
+
+#### Mac
+
+```bash
+sudo mkdir /opt/aamp
+sudo curl -o /opt/aamp/icon-__VERSION__.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-__VERSION__.png
+sudo curl -o /opt/aamp/aamp-php__VERSION__.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php__VERSION__.sh
+sudo chmod +x /opt/aamp/aamp-php__VERSION__.sh
+
+docker rm -f andreasvonburg/aamp:php__VERSION__ 2>/dev/null || true
+
+HTDOCS_PATH=
+while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
+do
+    read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
+done
+sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php__VERSION__.sh
+```
