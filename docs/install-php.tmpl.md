@@ -78,5 +78,5 @@ cp /opt/aamp/icon-__VERSION__.png /tmp/aamp-icon-__VERSION__.png
 sips -i /tmp/aamp-icon-__VERSION__.png
 DeRez -only icns /tmp/aamp-icon-__VERSION__.png > /tmp/aamp-icon-__VERSION__.rsrc
 sudo SetFile -a C /opt/aamp/aamp-php__VERSION__.command
-Rez -append /tmp/aamp-icon-__VERSION__.rsrc -o /opt/aamp/aamp-php__VERSION__.command
+sudo Rez -append /tmp/aamp-icon-__VERSION__.rsrc -o /opt/aamp/aamp-php__VERSION__.command
 ```

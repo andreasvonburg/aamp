@@ -101,7 +101,7 @@ cp /opt/aamp/icon-8.3.png /tmp/aamp-icon-8.3.png
 sips -i /tmp/aamp-icon-8.3.png
 DeRez -only icns /tmp/aamp-icon-8.3.png > /tmp/aamp-icon-8.3.rsrc
 sudo SetFile -a C /opt/aamp/aamp-php8.3.command
-Rez -append /tmp/aamp-icon-8.3.rsrc -o /opt/aamp/aamp-php8.3.command
+sudo Rez -append /tmp/aamp-icon-8.3.rsrc -o /opt/aamp/aamp-php8.3.command
 ```
 
 ### PHP 8.2
@@ -182,7 +182,7 @@ cp /opt/aamp/icon-8.2.png /tmp/aamp-icon-8.2.png
 sips -i /tmp/aamp-icon-8.2.png
 DeRez -only icns /tmp/aamp-icon-8.2.png > /tmp/aamp-icon-8.2.rsrc
 sudo SetFile -a C /opt/aamp/aamp-php8.2.command
-Rez -append /tmp/aamp-icon-8.2.rsrc -o /opt/aamp/aamp-php8.2.command
+sudo Rez -append /tmp/aamp-icon-8.2.rsrc -o /opt/aamp/aamp-php8.2.command
 ```
 
 ### PHP 8.1
@@ -263,7 +263,7 @@ cp /opt/aamp/icon-8.1.png /tmp/aamp-icon-8.1.png
 sips -i /tmp/aamp-icon-8.1.png
 DeRez -only icns /tmp/aamp-icon-8.1.png > /tmp/aamp-icon-8.1.rsrc
 sudo SetFile -a C /opt/aamp/aamp-php8.1.command
-Rez -append /tmp/aamp-icon-8.1.rsrc -o /opt/aamp/aamp-php8.1.command
+sudo Rez -append /tmp/aamp-icon-8.1.rsrc -o /opt/aamp/aamp-php8.1.command
 ```
 
 ### PHP 8.0
@@ -344,5 +344,5 @@ cp /opt/aamp/icon-8.0.png /tmp/aamp-icon-8.0.png
 sips -i /tmp/aamp-icon-8.0.png
 DeRez -only icns /tmp/aamp-icon-8.0.png > /tmp/aamp-icon-8.0.rsrc
 sudo SetFile -a C /opt/aamp/aamp-php8.0.command
-Rez -append /tmp/aamp-icon-8.0.rsrc -o /opt/aamp/aamp-php8.0.command
+sudo Rez -append /tmp/aamp-icon-8.0.rsrc -o /opt/aamp/aamp-php8.0.command
 ```
