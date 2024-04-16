@@ -73,4 +73,10 @@ do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
 done
 sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php__VERSION__.sh
+
+cp /opt/aamp/icon-__VERSION__.png /tmp/aamp-icon-__VERSION__.png
+sips -i /tmp/aamp-icon-__VERSION__.png
+DeRez -only icns /tmp/aamp-icon-__VERSION__.png > /tmp/aamp-icon-__VERSION__.rsrc
+SetFile -a C /opt/aamp/aamp-php__VERSION__.sh
+Rez -append /tmp/aamp-icon-__VERSION__.rsrc -o /tmp/aamp-icon-__VERSION__.png
 ```
