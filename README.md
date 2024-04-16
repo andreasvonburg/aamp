@@ -85,8 +85,8 @@ Change E:\htdocs to the path to your htdocs
 ```bash
 sudo mkdir /opt/aamp
 sudo curl -o /opt/aamp/icon-8.3.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-8.3.png
-sudo curl -o /opt/aamp/aamp-php8.3.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.3.sh
-sudo chmod +x /opt/aamp/aamp-php8.3.sh
+sudo curl -o /opt/aamp/aamp-php8.3.command https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.3.sh
+sudo chmod +x /opt/aamp/aamp-php8.3.command
 
 docker rm -f andreasvonburg/aamp:php8.3 2>/dev/null || true
 
@@ -95,13 +95,13 @@ while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
 do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
 done
-sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.3.sh
+sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.3.command
 
 cp /opt/aamp/icon-8.3.png /tmp/aamp-icon-8.3.png
 sips -i /tmp/aamp-icon-8.3.png
 DeRez -only icns /tmp/aamp-icon-8.3.png > /tmp/aamp-icon-8.3.rsrc
-SetFile -a C /opt/aamp/aamp-php8.3.sh
-Rez -append /tmp/aamp-icon-8.3.rsrc -o /tmp/aamp-icon-8.3.png
+sudo SetFile -a C /opt/aamp/aamp-php8.3.command
+Rez -append /tmp/aamp-icon-8.3.rsrc -o /opt/aamp/aamp-php8.3.command
 ```
 
 ### PHP 8.2
@@ -166,8 +166,8 @@ Change E:\htdocs to the path to your htdocs
 ```bash
 sudo mkdir /opt/aamp
 sudo curl -o /opt/aamp/icon-8.2.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-8.2.png
-sudo curl -o /opt/aamp/aamp-php8.2.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2.sh
-sudo chmod +x /opt/aamp/aamp-php8.2.sh
+sudo curl -o /opt/aamp/aamp-php8.2.command https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2.sh
+sudo chmod +x /opt/aamp/aamp-php8.2.command
 
 docker rm -f andreasvonburg/aamp:php8.2 2>/dev/null || true
 
@@ -176,13 +176,13 @@ while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
 do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
 done
-sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.2.sh
+sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.2.command
 
 cp /opt/aamp/icon-8.2.png /tmp/aamp-icon-8.2.png
 sips -i /tmp/aamp-icon-8.2.png
 DeRez -only icns /tmp/aamp-icon-8.2.png > /tmp/aamp-icon-8.2.rsrc
-SetFile -a C /opt/aamp/aamp-php8.2.sh
-Rez -append /tmp/aamp-icon-8.2.rsrc -o /tmp/aamp-icon-8.2.png
+sudo SetFile -a C /opt/aamp/aamp-php8.2.command
+Rez -append /tmp/aamp-icon-8.2.rsrc -o /opt/aamp/aamp-php8.2.command
 ```
 
 ### PHP 8.1
@@ -247,8 +247,8 @@ Change E:\htdocs to the path to your htdocs
 ```bash
 sudo mkdir /opt/aamp
 sudo curl -o /opt/aamp/icon-8.1.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-8.1.png
-sudo curl -o /opt/aamp/aamp-php8.1.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.1.sh
-sudo chmod +x /opt/aamp/aamp-php8.1.sh
+sudo curl -o /opt/aamp/aamp-php8.1.command https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.1.sh
+sudo chmod +x /opt/aamp/aamp-php8.1.command
 
 docker rm -f andreasvonburg/aamp:php8.1 2>/dev/null || true
 
@@ -257,13 +257,13 @@ while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
 do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
 done
-sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.1.sh
+sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.1.command
 
 cp /opt/aamp/icon-8.1.png /tmp/aamp-icon-8.1.png
 sips -i /tmp/aamp-icon-8.1.png
 DeRez -only icns /tmp/aamp-icon-8.1.png > /tmp/aamp-icon-8.1.rsrc
-SetFile -a C /opt/aamp/aamp-php8.1.sh
-Rez -append /tmp/aamp-icon-8.1.rsrc -o /tmp/aamp-icon-8.1.png
+sudo SetFile -a C /opt/aamp/aamp-php8.1.command
+Rez -append /tmp/aamp-icon-8.1.rsrc -o /opt/aamp/aamp-php8.1.command
 ```
 
 ### PHP 8.0
@@ -328,8 +328,8 @@ Change E:\htdocs to the path to your htdocs
 ```bash
 sudo mkdir /opt/aamp
 sudo curl -o /opt/aamp/icon-8.0.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-8.0.png
-sudo curl -o /opt/aamp/aamp-php8.0.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.0.sh
-sudo chmod +x /opt/aamp/aamp-php8.0.sh
+sudo curl -o /opt/aamp/aamp-php8.0.command https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.0.sh
+sudo chmod +x /opt/aamp/aamp-php8.0.command
 
 docker rm -f andreasvonburg/aamp:php8.0 2>/dev/null || true
 
@@ -338,11 +338,11 @@ while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
 do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
 done
-sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.0.sh
+sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.0.command
 
 cp /opt/aamp/icon-8.0.png /tmp/aamp-icon-8.0.png
 sips -i /tmp/aamp-icon-8.0.png
 DeRez -only icns /tmp/aamp-icon-8.0.png > /tmp/aamp-icon-8.0.rsrc
-SetFile -a C /opt/aamp/aamp-php8.0.sh
-Rez -append /tmp/aamp-icon-8.0.rsrc -o /tmp/aamp-icon-8.0.png
+sudo SetFile -a C /opt/aamp/aamp-php8.0.command
+Rez -append /tmp/aamp-icon-8.0.rsrc -o /opt/aamp/aamp-php8.0.command
 ```

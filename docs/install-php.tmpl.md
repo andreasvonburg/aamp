@@ -62,8 +62,8 @@ Change E:\htdocs to the path to your htdocs
 ```bash
 sudo mkdir /opt/aamp
 sudo curl -o /opt/aamp/icon-__VERSION__.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-__VERSION__.png
-sudo curl -o /opt/aamp/aamp-php__VERSION__.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php__VERSION__.sh
-sudo chmod +x /opt/aamp/aamp-php__VERSION__.sh
+sudo curl -o /opt/aamp/aamp-php__VERSION__.command https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php__VERSION__.sh
+sudo chmod +x /opt/aamp/aamp-php__VERSION__.command
 
 docker rm -f andreasvonburg/aamp:php__VERSION__ 2>/dev/null || true
 
@@ -72,11 +72,11 @@ while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
 do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
 done
-sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php__VERSION__.sh
+sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php__VERSION__.command
 
 cp /opt/aamp/icon-__VERSION__.png /tmp/aamp-icon-__VERSION__.png
 sips -i /tmp/aamp-icon-__VERSION__.png
 DeRez -only icns /tmp/aamp-icon-__VERSION__.png > /tmp/aamp-icon-__VERSION__.rsrc
-SetFile -a C /opt/aamp/aamp-php__VERSION__.sh
-Rez -append /tmp/aamp-icon-__VERSION__.rsrc -o /opt/aamp/aamp-php__VERSION__.sh
+sudo SetFile -a C /opt/aamp/aamp-php__VERSION__.command
+Rez -append /tmp/aamp-icon-__VERSION__.rsrc -o /opt/aamp/aamp-php__VERSION__.command
 ```
