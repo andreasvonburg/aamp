@@ -96,6 +96,12 @@ do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
 done
 sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.3.sh
+
+cp /opt/aamp/icon-8.3.png /tmp/aamp-icon-8.3.png
+sips -i /tmp/aamp-icon-8.3.png
+DeRez -only icns /tmp/aamp-icon-8.3.png > /tmp/aamp-icon-8.3.rsrc
+SetFile -a C /opt/aamp/aamp-php8.3.sh
+Rez -append /tmp/aamp-icon-8.3.rsrc -o /tmp/aamp-icon-8.3.png
 ```
 
 ### PHP 8.2
@@ -171,6 +177,12 @@ do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
 done
 sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.2.sh
+
+cp /opt/aamp/icon-8.2.png /tmp/aamp-icon-8.2.png
+sips -i /tmp/aamp-icon-8.2.png
+DeRez -only icns /tmp/aamp-icon-8.2.png > /tmp/aamp-icon-8.2.rsrc
+SetFile -a C /opt/aamp/aamp-php8.2.sh
+Rez -append /tmp/aamp-icon-8.2.rsrc -o /tmp/aamp-icon-8.2.png
 ```
 
 ### PHP 8.1
@@ -246,6 +258,12 @@ do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
 done
 sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.1.sh
+
+cp /opt/aamp/icon-8.1.png /tmp/aamp-icon-8.1.png
+sips -i /tmp/aamp-icon-8.1.png
+DeRez -only icns /tmp/aamp-icon-8.1.png > /tmp/aamp-icon-8.1.rsrc
+SetFile -a C /opt/aamp/aamp-php8.1.sh
+Rez -append /tmp/aamp-icon-8.1.rsrc -o /tmp/aamp-icon-8.1.png
 ```
 
 ### PHP 8.0
@@ -321,4 +339,10 @@ do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
 done
 sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.0.sh
+
+cp /opt/aamp/icon-8.0.png /tmp/aamp-icon-8.0.png
+sips -i /tmp/aamp-icon-8.0.png
+DeRez -only icns /tmp/aamp-icon-8.0.png > /tmp/aamp-icon-8.0.rsrc
+SetFile -a C /opt/aamp/aamp-php8.0.sh
+Rez -append /tmp/aamp-icon-8.0.rsrc -o /tmp/aamp-icon-8.0.png
 ```
