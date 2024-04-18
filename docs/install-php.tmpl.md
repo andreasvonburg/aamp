@@ -63,8 +63,8 @@ Change E:\htdocs to the path to your htdocs
 sudo mkdir /opt/aamp
 sudo curl -o /opt/aamp/icon-__VERSION__.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-__VERSION__.png
 sudo curl -o /opt/aamp/aamp-php__VERSION__.app https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php__VERSION__.app
-sudo curl -o /opt/aamp/aamp-php__VERSION__.command https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php__VERSION__.sh
-sudo chmod +x /opt/aamp/aamp-php__VERSION__.command
+sudo curl -o /opt/aamp/aamp-php__VERSION__.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php__VERSION__.sh
+sudo chmod +x /opt/aamp/aamp-php__VERSION__.sh
 
 docker rm -f andreasvonburg/aamp:php__VERSION__ 2>/dev/null || true
 

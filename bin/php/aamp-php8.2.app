@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=true
+Exec=/opt/aamp/aamp-php8.2.sh
+Name=AAMP PHP 8.2
+Icon=/opt/aamp/icon-8.2.png

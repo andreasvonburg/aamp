@@ -86,8 +86,8 @@ Change E:\htdocs to the path to your htdocs
 sudo mkdir /opt/aamp
 sudo curl -o /opt/aamp/icon-8.3.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-8.3.png
 sudo curl -o /opt/aamp/aamp-php8.3.app https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.3.app
-sudo curl -o /opt/aamp/aamp-php8.3.command https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.3.sh
-sudo chmod +x /opt/aamp/aamp-php8.3.command
+sudo curl -o /opt/aamp/aamp-php8.3.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.3.sh
+sudo chmod +x /opt/aamp/aamp-php8.3.sh
 
 docker rm -f andreasvonburg/aamp:php8.3 2>/dev/null || true
 
@@ -172,8 +172,8 @@ Change E:\htdocs to the path to your htdocs
 sudo mkdir /opt/aamp
 sudo curl -o /opt/aamp/icon-8.2.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-8.2.png
 sudo curl -o /opt/aamp/aamp-php8.2.app https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2.app
-sudo curl -o /opt/aamp/aamp-php8.2.command https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2.sh
-sudo chmod +x /opt/aamp/aamp-php8.2.command
+sudo curl -o /opt/aamp/aamp-php8.2.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2.sh
+sudo chmod +x /opt/aamp/aamp-php8.2.sh
 
 docker rm -f andreasvonburg/aamp:php8.2 2>/dev/null || true
 
@@ -258,8 +258,8 @@ Change E:\htdocs to the path to your htdocs
 sudo mkdir /opt/aamp
 sudo curl -o /opt/aamp/icon-8.1.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-8.1.png
 sudo curl -o /opt/aamp/aamp-php8.1.app https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.1.app
-sudo curl -o /opt/aamp/aamp-php8.1.command https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.1.sh
-sudo chmod +x /opt/aamp/aamp-php8.1.command
+sudo curl -o /opt/aamp/aamp-php8.1.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.1.sh
+sudo chmod +x /opt/aamp/aamp-php8.1.sh
 
 docker rm -f andreasvonburg/aamp:php8.1 2>/dev/null || true
 
@@ -344,8 +344,8 @@ Change E:\htdocs to the path to your htdocs
 sudo mkdir /opt/aamp
 sudo curl -o /opt/aamp/icon-8.0.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-8.0.png
 sudo curl -o /opt/aamp/aamp-php8.0.app https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.0.app
-sudo curl -o /opt/aamp/aamp-php8.0.command https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.0.sh
-sudo chmod +x /opt/aamp/aamp-php8.0.command
+sudo curl -o /opt/aamp/aamp-php8.0.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.0.sh
+sudo chmod +x /opt/aamp/aamp-php8.0.sh
 
 docker rm -f andreasvonburg/aamp:php8.0 2>/dev/null || true
 
