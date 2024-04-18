@@ -27,6 +27,8 @@ You must have docker installed and docker should be running while installing.
 
 #### Debian / Linux Mint / Ubuntu
 
+Docker must be running.
+
 ```bash
 sudo mkdir /opt/aamp
 sudo wget -O /opt/aamp/icon-8.3.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-8.3.png
@@ -45,42 +47,26 @@ sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.3.sh
 ```
 
 
-
-Change /home/andy/workspace/htdocs to the path to your htdocs
-
-```bash
-
-```
-
-
 #### Windows
 
-Use Powershell
+Docker must be running. Use Powershell or Cmd
 
 ```powershell
-New-Item "D:\apps\aamp" -Type Directory 
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.3.bat" -OutFile "D:\apps\aamp\aamp-php8.3.bat"
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon.ico" -OutFile "D:\apps\aamp\icon.ico"
-
-$SourceFilePath = "D:\apps\aamp\aamp-php8.3.bat"
-$ShortcutPath = ([Environment]::GetFolderPath("Desktop") + "\aamp-php8.3.lnk")
-$WScriptObj = New-Object -ComObject ("WScript.Shell")
-$shortcut = $WscriptObj.CreateShortcut($ShortcutPath)
-$shortcut.TargetPath = $SourceFilePath
-$shortcut.IconLocation = "D:\apps\aamp\icon-8.3.ico"
-$shortcut.Save()
-
-docker rm andreasvonburg/aamp:php8.3
-```
-
-Change E:\htdocs to the path to your htdocs
-
-```powershell
-((Get-Content -path D:\apps\aamp\aamp-php8.3.bat -Raw) -replace '_path_to_docs_','E:\htdocs') | Set-Content -Path D:\apps\aamp\aamp-php8.3.bat
+powershell.exe -Command "Start-Process powershell -Verb RunAs -ArgumentList '/c Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.3-windows-installer.ps1").Content'"
 ```
 
 
 #### Mac
+
+Docker must be running.
+
+Install Xcode Command Line Tools
+
+```bash
+xcode-select --install
+```
+
+Execute Installer
 
 ```bash
 curl https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.3-mac-installer.sh | bash
@@ -89,6 +75,8 @@ curl https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php
 ### PHP 8.2
 
 #### Debian / Linux Mint / Ubuntu
+
+Docker must be running.
 
 ```bash
 sudo mkdir /opt/aamp
@@ -108,17 +96,9 @@ sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.2.sh
 ```
 
 
-
-Change /home/andy/workspace/htdocs to the path to your htdocs
-
-```bash
-
-```
-
-
 #### Windows
 
-Use Powershell
+Docker must be running. Use Powershell or Cmd
 
 ```powershell
 powershell.exe -Command "Start-Process powershell -Verb RunAs -ArgumentList '/c Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2-windows-installer.ps1").Content'"
@@ -127,6 +107,16 @@ powershell.exe -Command "Start-Process powershell -Verb RunAs -ArgumentList '/c 
 
 #### Mac
 
+Docker must be running.
+
+Install Xcode Command Line Tools
+
+```bash
+xcode-select --install
+```
+
+Execute Installer
+
 ```bash
 curl https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2-mac-installer.sh | bash
 ```
@@ -134,6 +124,8 @@ curl https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php
 ### PHP 8.1
 
 #### Debian / Linux Mint / Ubuntu
+
+Docker must be running.
 
 ```bash
 sudo mkdir /opt/aamp
@@ -153,42 +145,26 @@ sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.1.sh
 ```
 
 
-
-Change /home/andy/workspace/htdocs to the path to your htdocs
-
-```bash
-
-```
-
-
 #### Windows
 
-Use Powershell
+Docker must be running. Use Powershell or Cmd
 
 ```powershell
-New-Item "D:\apps\aamp" -Type Directory 
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.1.bat" -OutFile "D:\apps\aamp\aamp-php8.1.bat"
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon.ico" -OutFile "D:\apps\aamp\icon.ico"
-
-$SourceFilePath = "D:\apps\aamp\aamp-php8.1.bat"
-$ShortcutPath = ([Environment]::GetFolderPath("Desktop") + "\aamp-php8.1.lnk")
-$WScriptObj = New-Object -ComObject ("WScript.Shell")
-$shortcut = $WscriptObj.CreateShortcut($ShortcutPath)
-$shortcut.TargetPath = $SourceFilePath
-$shortcut.IconLocation = "D:\apps\aamp\icon-8.1.ico"
-$shortcut.Save()
-
-docker rm andreasvonburg/aamp:php8.1
-```
-
-Change E:\htdocs to the path to your htdocs
-
-```powershell
-((Get-Content -path D:\apps\aamp\aamp-php8.1.bat -Raw) -replace '_path_to_docs_','E:\htdocs') | Set-Content -Path D:\apps\aamp\aamp-php8.1.bat
+powershell.exe -Command "Start-Process powershell -Verb RunAs -ArgumentList '/c Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.1-windows-installer.ps1").Content'"
 ```
 
 
 #### Mac
+
+Docker must be running.
+
+Install Xcode Command Line Tools
+
+```bash
+xcode-select --install
+```
+
+Execute Installer
 
 ```bash
 curl https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.1-mac-installer.sh | bash
@@ -197,6 +173,8 @@ curl https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php
 ### PHP 8.0
 
 #### Debian / Linux Mint / Ubuntu
+
+Docker must be running.
 
 ```bash
 sudo mkdir /opt/aamp
@@ -216,42 +194,26 @@ sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.0.sh
 ```
 
 
-
-Change /home/andy/workspace/htdocs to the path to your htdocs
-
-```bash
-
-```
-
-
 #### Windows
 
-Use Powershell
+Docker must be running. Use Powershell or Cmd
 
 ```powershell
-New-Item "D:\apps\aamp" -Type Directory 
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.0.bat" -OutFile "D:\apps\aamp\aamp-php8.0.bat"
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon.ico" -OutFile "D:\apps\aamp\icon.ico"
-
-$SourceFilePath = "D:\apps\aamp\aamp-php8.0.bat"
-$ShortcutPath = ([Environment]::GetFolderPath("Desktop") + "\aamp-php8.0.lnk")
-$WScriptObj = New-Object -ComObject ("WScript.Shell")
-$shortcut = $WscriptObj.CreateShortcut($ShortcutPath)
-$shortcut.TargetPath = $SourceFilePath
-$shortcut.IconLocation = "D:\apps\aamp\icon-8.0.ico"
-$shortcut.Save()
-
-docker rm andreasvonburg/aamp:php8.0
-```
-
-Change E:\htdocs to the path to your htdocs
-
-```powershell
-((Get-Content -path D:\apps\aamp\aamp-php8.0.bat -Raw) -replace '_path_to_docs_','E:\htdocs') | Set-Content -Path D:\apps\aamp\aamp-php8.0.bat
+powershell.exe -Command "Start-Process powershell -Verb RunAs -ArgumentList '/c Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.0-windows-installer.ps1").Content'"
 ```
 
 
 #### Mac
+
+Docker must be running.
+
+Install Xcode Command Line Tools
+
+```bash
+xcode-select --install
+```
+
+Execute Installer
 
 ```bash
 curl https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.0-mac-installer.sh | bash
