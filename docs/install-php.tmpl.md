@@ -74,7 +74,7 @@ while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
 do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
 done
-sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php__VERSION__.command
+sudo sed -i '' -e "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php__VERSION__.command
 
 sudo xattr -cr /opt/aamp/aamp-php__VERSION__.command
 sudo codesign -s - -f /opt/aamp/aamp-php__VERSION__.command
