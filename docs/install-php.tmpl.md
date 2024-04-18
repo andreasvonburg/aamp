@@ -22,14 +22,6 @@ sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php__VERSION__.sh
 ```
 
 
-
-Change /home/andy/workspace/htdocs to the path to your htdocs
-
-```bash
-
-```
-
-
 #### Windows
 
 Use Powershell
@@ -58,6 +50,14 @@ Change E:\htdocs to the path to your htdocs
 
 
 #### Mac
+
+Install Xcode Command Line Tools
+
+```bash
+xcode-select --install
+```
+
+Execute Installer
 
 ```bash
 curl https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php__VERSION__-mac-installer.sh | bash
