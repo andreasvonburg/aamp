@@ -84,5 +84,4 @@ DeRez -only icns /tmp/aamp-icon-__VERSION__.png > /tmp/aamp-icon-__VERSION__.rsr
 sudo SetFile -a C /opt/aamp/aamp-php__VERSION__.command
 sudo Rez -append /tmp/aamp-icon-__VERSION__.rsrc -o /opt/aamp/aamp-php__VERSION__.command
 sudo mv /opt/aamp/aamp-php__VERSION__.command "/Applications/AAMP PHP __VERSION__.app"
-
 ```
