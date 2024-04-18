@@ -121,25 +121,7 @@ Change /home/andy/workspace/htdocs to the path to your htdocs
 Use Powershell
 
 ```powershell
-New-Item "D:\apps\aamp" -Type Directory 
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2.bat" -OutFile "D:\apps\aamp\aamp-php8.2.bat"
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon.ico" -OutFile "D:\apps\aamp\icon.ico"
-
-$SourceFilePath = "D:\apps\aamp\aamp-php8.2.bat"
-$ShortcutPath = ([Environment]::GetFolderPath("Desktop") + "\aamp-php8.2.lnk")
-$WScriptObj = New-Object -ComObject ("WScript.Shell")
-$shortcut = $WscriptObj.CreateShortcut($ShortcutPath)
-$shortcut.TargetPath = $SourceFilePath
-$shortcut.IconLocation = "D:\apps\aamp\icon-8.2.ico"
-$shortcut.Save()
-
-docker rm andreasvonburg/aamp:php8.2
-```
-
-Change E:\htdocs to the path to your htdocs
-
-```powershell
-((Get-Content -path D:\apps\aamp\aamp-php8.2.bat -Raw) -replace '_path_to_docs_','E:\htdocs') | Set-Content -Path D:\apps\aamp\aamp-php8.2.bat
+powershell.exe -Command "Start-Process powershell -Verb RunAs -ArgumentList '/c Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2-windows-installer.ps1").Content'"
 ```
 
 
