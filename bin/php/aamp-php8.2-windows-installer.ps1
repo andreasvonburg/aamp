@@ -1,3 +1,5 @@
+docker rm -f andreasvonburg/aamp:php8.2
+
 $aampProgamFilesPath = ([Environment]::GetFolderPath("ProgramFiles")) + "\Aamp"
 New-Item $aampProgamFilesPath -Type Directory -Force
 
@@ -30,3 +32,8 @@ while ($true) {
 Write-Host "Valid path: '$path'" -ForegroundColor Green
 
 ((Get-Content -path $aampBatFilePath -Raw) -replace '_path_to_docs_', $path) | Set-Content -Path $aampBatFilePath
+
+
+Write-Host "AAMP PHP __VERSION__ has been installed." -ForegroundColor Green
+Write-Host -NoNewLine 'Press any key to continue...';
+$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');

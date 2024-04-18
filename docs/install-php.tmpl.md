@@ -4,6 +4,8 @@
 
 #### Debian / Linux Mint / Ubuntu
 
+Docker must be running.
+
 ```bash
 sudo mkdir /opt/aamp
 sudo wget -O /opt/aamp/icon-__VERSION__.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-__VERSION__.png
@@ -24,7 +26,7 @@ sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php__VERSION__.sh
 
 #### Windows
 
-Use Powershell or Cmd
+Docker must be running. Use Powershell or Cmd
 
 ```powershell
 powershell.exe -Command "Start-Process powershell -Verb RunAs -ArgumentList '/c Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php__VERSION__-windows-installer.ps1").Content'"
@@ -32,6 +34,8 @@ powershell.exe -Command "Start-Process powershell -Verb RunAs -ArgumentList '/c 
 
 
 #### Mac
+
+Docker must be running.
 
 Install Xcode Command Line Tools
 
