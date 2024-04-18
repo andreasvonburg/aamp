@@ -60,28 +60,5 @@ Change E:\htdocs to the path to your htdocs
 #### Mac
 
 ```bash
-sudo mkdir /opt/aamp
-sudo curl -o /opt/aamp/icon-__VERSION__.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-__VERSION__.png
-sudo curl -o /opt/aamp/aamp-php__VERSION__.command https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php__VERSION__.app
-sudo chmod +x /opt/aamp/aamp-php__VERSION__.command
-sudo curl -o /opt/aamp/aamp-php__VERSION__.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php__VERSION__.sh
-sudo chmod +x /opt/aamp/aamp-php__VERSION__.sh
-
-docker rm -f andreasvonburg/aamp:php__VERSION__ 2>/dev/null || true
-
-HTDOCS_PATH=
-while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
-do
-    read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
-done
-sudo sed -i '' -e "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php__VERSION__.command
-
-sudo xattr -cr /opt/aamp/aamp-php__VERSION__.command
-sudo codesign -s - -f /opt/aamp/aamp-php__VERSION__.command
-cp /opt/aamp/icon-__VERSION__.png /tmp/aamp-icon-__VERSION__.png
-sips -i /tmp/aamp-icon-__VERSION__.png
-DeRez -only icns /tmp/aamp-icon-__VERSION__.png > /tmp/aamp-icon-__VERSION__.rsrc
-sudo SetFile -a C /opt/aamp/aamp-php__VERSION__.command
-sudo Rez -append /tmp/aamp-icon-__VERSION__.rsrc -o /opt/aamp/aamp-php__VERSION__.command
-sudo mv /opt/aamp/aamp-php__VERSION__.command "/Applications/AAMP PHP __VERSION__.app"
+curl https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php__VERSION__-mac-installer.sh | bash
 ```
