@@ -62,6 +62,7 @@ Change E:\htdocs to the path to your htdocs
 ```bash
 sudo mkdir /opt/aamp
 sudo curl -o /opt/aamp/icon-__VERSION__.png https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-__VERSION__.png
+sudo curl -o /opt/aamp/aamp-php__VERSION__.app https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php__VERSION__.app
 sudo curl -o /opt/aamp/aamp-php__VERSION__.command https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php__VERSION__.sh
 sudo chmod +x /opt/aamp/aamp-php__VERSION__.command
 
@@ -74,9 +75,13 @@ do
 done
 sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php__VERSION__.command
 
+sudo xattr -cr /opt/aamp/aamp-php__VERSION__.app
+sudo codesign -s - -f /opt/aamp/aamp-php__VERSION__.app
 cp /opt/aamp/icon-__VERSION__.png /tmp/aamp-icon-__VERSION__.png
 sips -i /tmp/aamp-icon-__VERSION__.png
 DeRez -only icns /tmp/aamp-icon-__VERSION__.png > /tmp/aamp-icon-__VERSION__.rsrc
-sudo SetFile -a C /opt/aamp/aamp-php__VERSION__.command
-sudo Rez -append /tmp/aamp-icon-__VERSION__.rsrc -o /opt/aamp/aamp-php__VERSION__.command
+sudo SetFile -a C /opt/aamp/aamp-php__VERSION__.app
+sudo Rez -append /tmp/aamp-icon-__VERSION__.rsrc -o /opt/aamp/aamp-php__VERSION__.app
+sudo mv /opt/aamp/aamp-php__VERSION__.app "/Applications/AAMP PHP __VERSION__.app"
+
 ```
