@@ -34,15 +34,22 @@ MARIADB_VERSION=10.11.7
 
 
 for VERSION in ${VERSIONS[@]}; do
+    cp -f ../bin/php/aamp-php-windows-installer.ps1.tmpl ../bin/php/aamp-php${VERSION}-windows-installer.ps1
+    sed -i "s/__VERSION__/${VERSION}/g" ../bin/php/aamp-php${VERSION}-windows-installer.ps1
+
     cp -f ../bin/php/aamp-php.bat.tmpl ../bin/php/aamp-php${VERSION}.bat
     sed -i "s/__VERSION__/${VERSION}/g" ../bin/php/aamp-php${VERSION}.bat
     sed -i "s/__MARIADB_VERSION__/${MARIADB_VERSION}/g" ../bin/php/aamp-php${VERSION}.bat
+    
     cp -f ../bin/php/aamp-php.desktop.tmpl ../bin/php/aamp-php${VERSION}.desktop
     sed -i "s/__VERSION__/${VERSION}/g" ../bin/php/aamp-php${VERSION}.desktop
+    
     cp -f ../bin/php/aamp-php.app.tmpl ../bin/php/aamp-php${VERSION}.app
     sed -i "s/__VERSION__/${VERSION}/g" ../bin/php/aamp-php${VERSION}.app
+    
     cp -f ../bin/php/aamp-php-mac-installer.sh.tmpl ../bin/php/aamp-php${VERSION}-mac-installer.sh
     sed -i "s/__VERSION__/${VERSION}/g" ../bin/php/aamp-php${VERSION}-mac-installer.sh
+    
     cp -f ../bin/php/aamp-php.sh.tmpl ../bin/php/aamp-php${VERSION}.sh
     sed -i "s/__VERSION__/${VERSION}/g" ../bin/php/aamp-php${VERSION}.sh
     sed -i "s/__MARIADB_VERSION__/${MARIADB_VERSION}/g" ../bin/php/aamp-php${VERSION}.sh
