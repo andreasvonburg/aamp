@@ -8,7 +8,7 @@ sudo chmod +x /opt/aamp/aamp-php8.1.sh
 docker rm -f andreasvonburg/aamp:php8.1 2>/dev/null || true
 
 HTDOCS_PATH=
-w hile ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
+while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
 do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH </dev/tty
 done
