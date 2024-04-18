@@ -29,7 +29,7 @@ while ($true) {
     Write-Host "Folder does not exist. Please try again." -ForegroundColor Red
 }
 
-Write-Host "Valid path: '$path'" -ForegroundColor Green
+Write-Host "Folder is valid: '$path'" -ForegroundColor Green
 
 ((Get-Content -path $aampBatFilePath -Raw) -replace '_path_to_docs_', $path) | Set-Content -Path $aampBatFilePath
 
