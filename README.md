@@ -97,7 +97,7 @@ while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
 do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
 done
-sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.3.command
+sudo sed -i '' -e "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.3.command
 
 sudo xattr -cr /opt/aamp/aamp-php8.3.command
 sudo codesign -s - -f /opt/aamp/aamp-php8.3.command
@@ -107,7 +107,6 @@ DeRez -only icns /tmp/aamp-icon-8.3.png > /tmp/aamp-icon-8.3.rsrc
 sudo SetFile -a C /opt/aamp/aamp-php8.3.command
 sudo Rez -append /tmp/aamp-icon-8.3.rsrc -o /opt/aamp/aamp-php8.3.command
 sudo mv /opt/aamp/aamp-php8.3.command "/Applications/AAMP PHP 8.3.app"
-
 ```
 
 ### PHP 8.2
@@ -184,7 +183,7 @@ while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
 do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
 done
-sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.2.command
+sudo sed -i '' -e "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.2.command
 
 sudo xattr -cr /opt/aamp/aamp-php8.2.command
 sudo codesign -s - -f /opt/aamp/aamp-php8.2.command
@@ -194,7 +193,6 @@ DeRez -only icns /tmp/aamp-icon-8.2.png > /tmp/aamp-icon-8.2.rsrc
 sudo SetFile -a C /opt/aamp/aamp-php8.2.command
 sudo Rez -append /tmp/aamp-icon-8.2.rsrc -o /opt/aamp/aamp-php8.2.command
 sudo mv /opt/aamp/aamp-php8.2.command "/Applications/AAMP PHP 8.2.app"
-
 ```
 
 ### PHP 8.1
@@ -271,7 +269,7 @@ while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
 do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
 done
-sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.1.command
+sudo sed -i '' -e "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.1.command
 
 sudo xattr -cr /opt/aamp/aamp-php8.1.command
 sudo codesign -s - -f /opt/aamp/aamp-php8.1.command
@@ -281,7 +279,6 @@ DeRez -only icns /tmp/aamp-icon-8.1.png > /tmp/aamp-icon-8.1.rsrc
 sudo SetFile -a C /opt/aamp/aamp-php8.1.command
 sudo Rez -append /tmp/aamp-icon-8.1.rsrc -o /opt/aamp/aamp-php8.1.command
 sudo mv /opt/aamp/aamp-php8.1.command "/Applications/AAMP PHP 8.1.app"
-
 ```
 
 ### PHP 8.0
@@ -358,7 +355,7 @@ while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
 do
     read -p "Enter valid path to your htdocs (e. g. /holeradio/htdocs): " HTDOCS_PATH
 done
-sudo sed -i "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.0.command
+sudo sed -i '' -e "s#_path_to_docs_#${HTDOCS_PATH}#" /opt/aamp/aamp-php8.0.command
 
 sudo xattr -cr /opt/aamp/aamp-php8.0.command
 sudo codesign -s - -f /opt/aamp/aamp-php8.0.command
@@ -368,5 +365,4 @@ DeRez -only icns /tmp/aamp-icon-8.0.png > /tmp/aamp-icon-8.0.rsrc
 sudo SetFile -a C /opt/aamp/aamp-php8.0.command
 sudo Rez -append /tmp/aamp-icon-8.0.rsrc -o /opt/aamp/aamp-php8.0.command
 sudo mv /opt/aamp/aamp-php8.0.command "/Applications/AAMP PHP 8.0.app"
-
 ```
