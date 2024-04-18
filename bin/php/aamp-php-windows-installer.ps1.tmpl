@@ -6,8 +6,8 @@ New-Item $aampProgamFilesPath -Type Directory -Force
 $aampBatFilePath = $aampProgamFilesPath + "\aamp-php__VERSION__.bat"
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php__VERSION__.bat" -OutFile $aampBatFilePath
 
-$aampIconPath = $aampProgamFilesPath + "\icon.ico"
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon.ico" -OutFile $aampIconPath
+$aampIconPath = $aampProgamFilesPath + "\icon-__VERSION__.ico"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/icon-__VERSION__.ico" -OutFile $aampIconPath
 
 $aampStartPath = ([Environment]::GetFolderPath("CommonPrograms")) + "\Aamp"
 New-Item $aampStartPath -Type Directory -Force
