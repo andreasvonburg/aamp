@@ -21,4 +21,8 @@ sips -i /tmp/aamp-icon-8.2.png
 DeRez -only icns /tmp/aamp-icon-8.2.png > /tmp/aamp-icon-8.2.rsrc
 sudo SetFile -a C /opt/aamp/aamp-php8.2.command
 sudo Rez -append /tmp/aamp-icon-8.2.rsrc -o /opt/aamp/aamp-php8.2.command
+
+/opt/aamp/aamp-php8.2.command & sleep 1 # command somehow needs be called before renaming it to .app otherwise it gets Killed 9
 sudo mv /opt/aamp/aamp-php8.2.command "/Applications/AAMP PHP 8.2.app"
+
+echo "AAMP 8.2 installed."
