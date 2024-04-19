@@ -41,6 +41,9 @@ for VERSION in ${VERSIONS[@]}; do
     sed -i "s/__VERSION__/${VERSION}/g" ../bin/php/aamp-php${VERSION}.bat
     sed -i "s/__MARIADB_VERSION__/${MARIADB_VERSION}/g" ../bin/php/aamp-php${VERSION}.bat
     
+    cp -f ../bin/php/aamp-php-linux-installer.sh.tmpl ../bin/php/aamp-php${VERSION}-linux-installer.sh
+    sed -i "s/__VERSION__/${VERSION}/g" ../bin/php/aamp-php${VERSION}-linux-installer.sh
+    
     cp -f ../bin/php/aamp-php.desktop.tmpl ../bin/php/aamp-php${VERSION}.desktop
     sed -i "s/__VERSION__/${VERSION}/g" ../bin/php/aamp-php${VERSION}.desktop
     
