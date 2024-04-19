@@ -5,7 +5,7 @@ sudo chmod +x /opt/aamp/aamp-php__VERSION__.command
 sudo curl -o /opt/aamp/aamp-php__VERSION__.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php__VERSION__.sh
 sudo chmod +x /opt/aamp/aamp-php__VERSION__.sh
 
-docker rm -f andreasvonburg/aamp:php__VERSION__ 2>/dev/null || true
+docker image rm -f andreasvonburg/aamp:php__VERSION__ 2>/dev/null || true
 
 HTDOCS_PATH=
 while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]

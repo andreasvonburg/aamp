@@ -1,4 +1,4 @@
-docker rm -f andreasvonburg/aamp:php8.2
+docker image rm -f andreasvonburg/aamp:php8.2
 
 $aampProgamFilesPath = ([Environment]::GetFolderPath("ProgramFiles")) + "\Aamp"
 New-Item $aampProgamFilesPath -Type Directory -Force

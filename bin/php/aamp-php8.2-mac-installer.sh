@@ -5,7 +5,7 @@ sudo chmod +x /opt/aamp/aamp-php8.2.command
 sudo curl -o /opt/aamp/aamp-php8.2.sh https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.2.sh
 sudo chmod +x /opt/aamp/aamp-php8.2.sh
 
-docker rm -f andreasvonburg/aamp:php8.2 2>/dev/null || true
+docker image rm -f andreasvonburg/aamp:php8.2 2>/dev/null || true
 
 HTDOCS_PATH=
 while ! [[ "$HTDOCS_PATH" =~ ^/[^:\<\>\"\|\\\?\*#]*$ ]]
