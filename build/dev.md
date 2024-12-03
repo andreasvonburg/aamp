@@ -79,7 +79,7 @@ MARIADB_VERSION=10.11.7
 cp -f ../src/php/php.Dockerfile.tmpl ../src/php/php${VERSION}.Dockerfile
 sed -i "s/__VERSION__/${VERSION}/g" ../src/php/php${VERSION}.Dockerfile
 sed -i "s/__MARIADB_VERSION__/${MARIADB_VERSION}/g" ../src/php/php${VERSION}.Dockerfile
-docker buildx build -t andreasvonburg/aamp:php${VERSION} -f ../src/php/php${VERSION}.Dockerfile --platform linux/amd64,linux/arm64 ../src/php/
+docker build -t andreasvonburg/aamp:php${VERSION} -f ../src/php/php${VERSION}.Dockerfile --platform linux/amd64,linux/arm64 ../src/php/
 ```
 
 ## Run
