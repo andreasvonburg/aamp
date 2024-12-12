@@ -22,19 +22,21 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"  \
     && chmod +x /usr/local/bin/install-php-extensions
 
-RUN install-php-extensions pdo_mysql bcmath exif zip gd sockets intl igbinary imagick \
+RUN install-php-extensions pdo_mysql bcmath exif zip gd sockets intl igbinary \
     && docker-php-ext-enable opcache \
     && echo "\n\
         max_execution_time = 60\n\
         memory_limit = 265M" >> "$PHP_INI_DIR/conf.d/docker-php-limits.ini"  \
     && echo "\n\
-        pdo_mysql.default_socket = /var/run/mysqld/mysqld.sock" >> "$PHP_INI_DIR/conf.d/docker-php-pdo.ini" \
-    && sed -ri -e 's!<policy domain="coder" rights="none" pattern="PDF" />!<policy domain="coder" rights="read|write" pattern="PDF" />!g' /etc/ImageMagick-6/policy.xml \
-    && apt-get update && apt-get install -y ghostscript
+        pdo_mysql.default_socket = /var/run/mysqld/mysqld.sock" >> "$PHP_INI_DIR/conf.d/docker-php-pdo.ini"
 
 #RUN apt-get update && apt-get install -y ghostscript libmagickwand-dev --no-install-recommends
 #      && pecl install imagick \
 #  	&& docker-php-ext-enable imagick
+
+# RUN install-php-extensions imagick \
+#    && sed -ri -e 's!<policy domain="coder" rights="none" pattern="PDF" />!<policy domain="coder" rights="read|write" pattern="PDF" />!g' /etc/ImageMagick-6/policy.xml \
+#    && apt-get update && apt-get install -y ghostscript
 
 
 
@@ -56,7 +58,7 @@ ENV APACHE_RUN_GROUP=user
 
 # DOCUMENT ROOT
 
-ENV APACHE_DOCUMENT_ROOT /var/www/public
+ENV APACHE_DOCUMENT_ROOT=/var/www/public
 
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
     && sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf \
@@ -85,7 +87,6 @@ RUN apt-get update && apt-get install -y mariadb-server socket.io \
 #VOLUME ["/var/lib/mysql"]
 
 COPY ./scripts/mariadb-credentials-reset.sh /opt/
-
 RUN chmod +x /opt/mariadb-credentials-reset.sh
 
 EXPOSE 3306
@@ -99,8 +100,11 @@ EXPOSE 3306
 
 RUN apt update \
 	&& apt-get install rabbitmq-server -y --fix-missing \
-    && rabbitmq-plugins enable rabbitmq_management \
+#    && rabbitmq-plugins enable rabbitmq_management \
     && echo "[{rabbit, [{loopback_users, []}]}]." > /etc/rabbitmq/rabbitmq.config
+
+COPY ./scripts/rabbitmq-management-enable.sh /opt/rabbitmq-management-enable.sh
+RUN chmod +x /opt/rabbitmq-management-enable.sh
 
 EXPOSE 5672
 EXPOSE 15672

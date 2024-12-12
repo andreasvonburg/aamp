@@ -22,19 +22,21 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"  \
     && chmod +x /usr/local/bin/install-php-extensions
 
-RUN install-php-extensions pdo_mysql bcmath exif zip gd sockets intl igbinary imagick \
+RUN install-php-extensions pdo_mysql bcmath exif zip gd sockets intl igbinary \
     && docker-php-ext-enable opcache \
     && echo "\n\
         max_execution_time = 60\n\
         memory_limit = 265M" >> "$PHP_INI_DIR/conf.d/docker-php-limits.ini"  \
     && echo "\n\
-        pdo_mysql.default_socket = /var/run/mysqld/mysqld.sock" >> "$PHP_INI_DIR/conf.d/docker-php-pdo.ini" \
-    && sed -ri -e 's!<policy domain="coder" rights="none" pattern="PDF" />!<policy domain="coder" rights="read|write" pattern="PDF" />!g' /etc/ImageMagick-6/policy.xml \
-    && apt-get update && apt-get install -y ghostscript
+        pdo_mysql.default_socket = /var/run/mysqld/mysqld.sock" >> "$PHP_INI_DIR/conf.d/docker-php-pdo.ini"
 
 #RUN apt-get update && apt-get install -y ghostscript libmagickwand-dev --no-install-recommends
 #      && pecl install imagick \
 #  	&& docker-php-ext-enable imagick
+
+# RUN install-php-extensions imagick \
+#    && sed -ri -e 's!<policy domain="coder" rights="none" pattern="PDF" />!<policy domain="coder" rights="read|write" pattern="PDF" />!g' /etc/ImageMagick-6/policy.xml \
+#    && apt-get update && apt-get install -y ghostscript
 
 
 

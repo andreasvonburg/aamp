@@ -4,6 +4,10 @@
 ## Docker images
 
 ```bash
+ docker run --privileged --rm tonistiigi/binfmt --install all
+```
+
+```bash
 VERSIONS=(8.4 8.3 8.2 8.1 8.0)
 MARIADB_VERSION=10.11.7
 
@@ -11,7 +15,7 @@ for VERSION in ${VERSIONS[@]}; do
     cp -f ../src/php/php.Dockerfile.tmpl ../src/php/php${VERSION}.Dockerfile
     sed -i "s/__VERSION__/${VERSION}/g" ../src/php/php${VERSION}.Dockerfile
     sed -i "s/__MARIADB_VERSION__/${MARIADB_VERSION}/g" ../src/php/php${VERSION}.Dockerfile
-    docker build -t andreasvonburg/aamp:php${VERSION} -f ../src/php/php${VERSION}.Dockerfile ../src/php/
+    docker build -t andreasvonburg/aamp:php${VERSION} -f ../src/php/php${VERSION}.Dockerfile --platform linux/amd64,linux/arm64 ../src/php/
 done
 ```
 
@@ -73,7 +77,11 @@ done
 ## Build
 
 ```bash
-VERSION=8.4
+ docker run --privileged --rm tonistiigi/binfmt --install all
+```
+
+```bash
+VERSION=8.3
 MARIADB_VERSION=10.11.7
 
 cp -f ../src/php/php.Dockerfile.tmpl ../src/php/php${VERSION}.Dockerfile
