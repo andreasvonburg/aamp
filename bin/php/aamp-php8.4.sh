@@ -11,4 +11,5 @@ docker run -it --rm \
   -p 5672:5672 -p 15672:15672 \
   -e VUID=$(id -u) -e VGID=$(id -g) \
   --name aamp \
+  --network="host" \
   andreasvonburg/aamp:php8.4

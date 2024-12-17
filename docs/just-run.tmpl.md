@@ -13,6 +13,7 @@ docker run -it --rm \
     -p 5672:5672 -p 15672:15672 \
     -e VUID=$(id -u) -e VGID=$(id -g) \
     --name aamp \
+    --network="host" \
     andreasvonburg/aamp:php8.2
 ```
 
@@ -29,5 +30,6 @@ docker run -it --rm \
     -p 5672:5672 -p 15672:15672 \
     -e VUID=1000 -e VGID=1000 \
     --name aamp \
+    --network="host" \
     andreasvonburg/aamp:php8.2
 ```
