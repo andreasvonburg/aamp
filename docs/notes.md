@@ -9,3 +9,8 @@ https://serverfault.com/questions/1065513/how-does-linux-resolve-wildcard-locaho
 # ico
 
 https://convertico.com/
+
+# host network (does not work on apple)
+docker run ....
+ --network="host" \
+ ...
