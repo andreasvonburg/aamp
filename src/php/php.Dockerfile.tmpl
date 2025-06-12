@@ -26,8 +26,8 @@ RUN install-php-extensions pdo_mysql bcmath exif zip gd sockets intl igbinary \
     && docker-php-ext-enable opcache \
     && echo "\n\
         max_execution_time = 60\n\
-        memory_limit = 265M\n\
-        upload_max_filesize = 16M" >> "$PHP_INI_DIR/conf.d/docker-php-limits.ini"  \
+        memory_limit = 512M\n\
+        upload_max_filesize = 32M" >> "$PHP_INI_DIR/conf.d/docker-php-limits.ini"  \
     && echo "\n\
         pdo_mysql.default_socket = /var/run/mysqld/mysqld.sock" >> "$PHP_INI_DIR/conf.d/docker-php-pdo.ini"
 
