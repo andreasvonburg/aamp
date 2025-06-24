@@ -22,12 +22,12 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"  \
     && chmod +x /usr/local/bin/install-php-extensions
 
-RUN install-php-extensions pdo_mysql bcmath exif zip gd sockets intl igbinary \
-    && docker-php-ext-enable opcache \
+RUN install-php-extensions pdo_mysql bcmath exif zip gd sockets intl igbinary
+RUN docker-php-ext-enable opcache \
     && echo "\n\
         max_execution_time = 60\n\
-        memory_limit = 265M\n\
-        upload_max_filesize = 16M" >> "$PHP_INI_DIR/conf.d/docker-php-limits.ini"  \
+        memory_limit = 512M\n\
+        upload_max_filesize = 32M" >> "$PHP_INI_DIR/conf.d/docker-php-limits.ini"  \
     && echo "\n\
         pdo_mysql.default_socket = /var/run/mysqld/mysqld.sock" >> "$PHP_INI_DIR/conf.d/docker-php-pdo.ini"
 
@@ -83,7 +83,12 @@ RUN apt-get update && apt-get install -y mariadb-server socket.io \
     && sed -i "s/127.0.0.1/0.0.0.0/g" /etc/mysql/mariadb.conf.d/*.cnf \
     && sed -i "s/#skip-name-resolve/skip-name-resolve/g" /etc/mysql/mariadb.conf.d/*.cnf \
     && mkdir /var/run/mysqld \
-    && chown -R mysql:mysql /var/run/mysqld
+    && chown -R mysql:mysql /var/run/mysqld \
+    && echo "\n\
+               [mysqld]\n\
+               key_buffer_size = 128M\n\
+               max_allowed_packet = 1G\n\
+               innodb_buffer_pool_size = 8G" >> "/etc/mysql/mariadb.conf.d/90-docker-my.cnf"
 
 #VOLUME ["/var/lib/mysql"]
 

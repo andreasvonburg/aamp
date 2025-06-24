@@ -15,7 +15,7 @@ for VERSION in ${VERSIONS[@]}; do
     cp -f ../src/php/php.Dockerfile.tmpl ../src/php/php${VERSION}.Dockerfile
     sed -i "s/__VERSION__/${VERSION}/g" ../src/php/php${VERSION}.Dockerfile
     sed -i "s/__MARIADB_VERSION__/${MARIADB_VERSION}/g" ../src/php/php${VERSION}.Dockerfile
-    docker build -t andreasvonburg/aamp:php${VERSION} -f ../src/php/php${VERSION}.Dockerfile --platform linux/amd64,linux/arm64 ../src/php/
+    docker build --progress=plain -t andreasvonburg/aamp:php${VERSION} -f ../src/php/php${VERSION}.Dockerfile --platform linux/amd64,linux/arm64 ../src/php/
 done
 ```
 
