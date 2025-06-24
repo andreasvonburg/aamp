@@ -22,14 +22,21 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"  \
     && chmod +x /usr/local/bin/install-php-extensions
 
-RUN install-php-extensions pdo_mysql bcmath exif zip gd sockets intl igbinary
-RUN docker-php-ext-enable opcache \
+RUN apt-get update \
+    && install-php-extensions pdo_mysql bcmath exif zip gd sockets intl \
+    && docker-php-ext-enable opcache \
     && echo "\n\
         max_execution_time = 60\n\
         memory_limit = 512M\n\
         upload_max_filesize = 32M" >> "$PHP_INI_DIR/conf.d/docker-php-limits.ini"  \
     && echo "\n\
         pdo_mysql.default_socket = /var/run/mysqld/mysqld.sock" >> "$PHP_INI_DIR/conf.d/docker-php-pdo.ini"
+
+# igbinary
+RUN apt-get update && apt-get install -y \
+    libz-dev \
+    && pecl install igbinary \
+    && docker-php-ext-enable igbinary
 
 #RUN apt-get update && apt-get install -y ghostscript libmagickwand-dev --no-install-recommends
 #      && pecl install imagick \
