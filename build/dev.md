@@ -8,19 +8,19 @@
 ```
 
 ```bash
-VERSIONS=(8.4 8.3 8.2 8.1 8.0)
+VERSIONS=(8.4 8.5 8.6)
 MARIADB_VERSION=10.11.7
 
 for VERSION in ${VERSIONS[@]}; do
-    cp -f ../src/php/php.Dockerfile.tmpl ../src/php/php${VERSION}.Dockerfile
-    sed -i "s/__VERSION__/${VERSION}/g" ../src/php/php${VERSION}.Dockerfile
-    sed -i "s/__MARIADB_VERSION__/${MARIADB_VERSION}/g" ../src/php/php${VERSION}.Dockerfile
-    docker build --progress=plain -t andreasvonburg/aamp:php${VERSION} -f ../src/php/php${VERSION}.Dockerfile --platform linux/amd64,linux/arm64 ../src/php/
+    cp -f src/php/php.Dockerfile.tmpl src/php/php${VERSION}.Dockerfile
+    sed -i "s/__VERSION__/${VERSION}/g" src/php/php${VERSION}.Dockerfile
+    sed -i "s/__MARIADB_VERSION__/${MARIADB_VERSION}/g" src/php/php${VERSION}.Dockerfile
+    docker build --progress=plain -t andreasvonburg/aamp:php${VERSION} -f src/php/php${VERSION}.Dockerfile --platform linux/amd64,linux/arm64 src/php/
 done
 ```
 
 ```bash
-VERSIONS=(8.4 8.3 8.2 8.1 8.0)
+VERSIONS=(8.4 8.5 8.6)
 
 docker login
 
@@ -33,9 +33,10 @@ done
 ## bin/php and README.md
 
 ```bash
-VERSIONS=(8.4 8.3 8.2 8.1 8.0)
-MARIADB_VERSION=10.11.7
+cd build
 
+VERSIONS=(8.6 8.5 8.4 8.3 8.2 8.1 8.0)
+MARIADB_VERSION=10.11.7
 
 for VERSION in ${VERSIONS[@]}; do
     cp -f ../bin/php/aamp-php-windows-installer.ps1.tmpl ../bin/php/aamp-php${VERSION}-windows-installer.ps1
@@ -81,19 +82,19 @@ done
 ```
 
 ```bash
-VERSION=8.3
+VERSION=8.5
 MARIADB_VERSION=10.11.7
 
-cp -f ../src/php/php.Dockerfile.tmpl ../src/php/php${VERSION}.Dockerfile
-sed -i "s/__VERSION__/${VERSION}/g" ../src/php/php${VERSION}.Dockerfile
-sed -i "s/__MARIADB_VERSION__/${MARIADB_VERSION}/g" ../src/php/php${VERSION}.Dockerfile
-docker build -t andreasvonburg/aamp:php${VERSION} -f ../src/php/php${VERSION}.Dockerfile --platform linux/amd64,linux/arm64 ../src/php/
+cp -f src/php/php.Dockerfile.tmpl src/php/php${VERSION}.Dockerfile
+sed -i "s/__VERSION__/${VERSION}/g" src/php/php${VERSION}.Dockerfile
+sed -i "s/__MARIADB_VERSION__/${MARIADB_VERSION}/g" src/php/php${VERSION}.Dockerfile
+docker build -t andreasvonburg/aamp:php${VERSION} -f src/php/php${VERSION}.Dockerfile --platform linux/amd64,linux/arm64 src/php/
 ```
 
 ## Run
 
 ```bash
-VERSION=8.3
+VERSION=8.35
 MARIADB_VERSION=10.11.7
 
 docker stop aamp || true

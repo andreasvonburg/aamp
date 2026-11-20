@@ -22,6 +22,80 @@
 You must have docker installed and docker should be running while installing.
 
 
+### PHP 8.6
+
+#### Debian / Linux Mint / Ubuntu
+
+Docker must be running.
+
+```bash
+curl https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.6-linux-installer.sh | bash
+```
+
+
+#### Windows
+
+Docker must be running. Use Powershell or Cmd
+
+```powershell
+powershell.exe -Command "Start-Process powershell -Verb RunAs -ArgumentList '/c Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.6-windows-installer.ps1").Content'"
+```
+
+
+#### Mac
+
+Docker must be running.
+
+Install Xcode Command Line Tools
+
+```bash
+xcode-select --install
+```
+
+Execute Installer
+
+```bash
+curl https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.6-mac-installer.sh | bash
+```
+
+
+### PHP 8.5
+
+#### Debian / Linux Mint / Ubuntu
+
+Docker must be running.
+
+```bash
+curl https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.5-linux-installer.sh | bash
+```
+
+
+#### Windows
+
+Docker must be running. Use Powershell or Cmd
+
+```powershell
+powershell.exe -Command "Start-Process powershell -Verb RunAs -ArgumentList '/c Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.5-windows-installer.ps1").Content'"
+```
+
+
+#### Mac
+
+Docker must be running.
+
+Install Xcode Command Line Tools
+
+```bash
+xcode-select --install
+```
+
+Execute Installer
+
+```bash
+curl https://raw.githubusercontent.com/andreasvonburg/aamp/main/bin/php/aamp-php8.5-mac-installer.sh | bash
+```
+
+
 ### PHP 8.4
 
 #### Debian / Linux Mint / Ubuntu
